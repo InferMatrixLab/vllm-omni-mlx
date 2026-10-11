@@ -66,6 +66,13 @@ python -m unittest tests.tts.test_stream_loop       # one file at a time in prac
   past it means re-verifying every vendored function against the new
   source (an adaptation PR, not a version bump).
 
+## Before implementation: contributor intent
+
+Complete the human [contributor-intent gate](.claude/skills/precheck-pr/SKILL.md#human-contributor-intent-gate)
+before implementation and recheck it before PR submission. Reuse explicit,
+traceable human answers; ask only missing questions and wait. The gate applies
+to contributor work, not independent read-only review or reviewer selection.
+
 ## Before you open the PR: the precheck (must)
 
 Run the repo's author-side self-check before declaring a PR ready —
