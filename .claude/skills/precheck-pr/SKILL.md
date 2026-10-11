@@ -11,6 +11,49 @@ including "just tests" and "just docs" PRs; three of the five findings in
 #102's pass were in a test-only diff, one of them introduced by the pass
 itself and caught only by the re-run gate (step 6).
 
+## Human contributor-intent gate
+
+Apply this gate to contributor planning, implementation, and author self-review
+before PR submission. It does not block an independent read-only review or
+change automated reviewer selection.
+
+Before implementation, have the human contributor explicitly answer:
+
+1. What outcome are you trying to achieve?
+2. What is the highest-leverage variable for that outcome?
+3. How will this proposed work move that variable, rather than merely create
+   activity or busywork?
+4. Who is the customer or user, and what do they actually need?
+
+Reuse explicit human answers already present in the request, issue, or
+discussion, citing their source. Ask only for missing or ambiguous answers and
+wait for the human's response before proceeding with implementation or
+submission. Do not invent answers, silently infer intent from a diff, or
+complete this gate on the human's behalf.
+
+After those answers are clear, ask the human: **Is a PR needed at all?**
+Consider whether an existing capability, a usage/configuration change, an
+answer, or an investigation already meets the need. Reuse an explicit,
+traceable human decision if one already exists; otherwise wait for it. If the
+answer is no or remains unresolved, stop PR-bound work and report the next
+step for the human to choose.
+
+For a bugfix, link evidence of an actual observed failure: a reproducible case,
+failing test output, logs, or an issue/report describing what happened and what
+was expected. Label evidence that has not been reproduced locally. A
+hypothetical risk is not observed failure evidence; ask for the missing
+evidence rather than manufacture it.
+
+At pre-PR self-review, confirm that the final diff still serves the recorded
+outcome, variable, customer need, and PR decision. If intent or scope materially
+changed, return only the changed or missing decisions to the human and wait.
+Include a concise source-linked record in the existing issue or PR description;
+do not create a duplicate planning artifact or copy private discussion into a
+public PR. This gate supplements all existing validation and authorization
+requirements.
+
+Contributor guide: [CONTRIBUTING.md](../../../CONTRIBUTING.md).
+
 ## Step 1: Freeze the diff
 
 ```bash
